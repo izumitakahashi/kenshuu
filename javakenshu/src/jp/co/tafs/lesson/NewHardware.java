@@ -2,27 +2,25 @@ package jp.co.tafs.lesson;
 
 public class NewHardware extends Hardware {
 	
-	String SoftwareList[] = new String[5];
-	private String hardwareSoft="nothing";
-	
 	public void gameSoftIn(String gameSoft){
 		for(int i=0;i<5;i++){
-			
-			if(SoftwareList[i]==gameSoft){
-				hardwareSoft=gameSoft;
+			if(SoftwareList.get(i)==gameSoft){
+				setHardwareSoft(gameSoft);
 				break;
-			}else if(SoftwareList[i]==null){
-				SoftwareList[i]=gameSoft;
-				hardwareSoft=gameSoft;
+			}else if(SoftwareList.get(i)==null){
+				SoftwareList.set(i,gameSoft);
+				setHardwareSoft(gameSoft);
 				break;
+			}else if(i==4){
+				System.out.println("5本以上インストールするこどはできません");
 			}
 		}
 	}
 	
 	public void gameSoftOut(){
 		for(int i=0;i<5;i++){
-			if(SoftwareList[i]!=null){
-				SoftwareList[i]=null;
+			if(SoftwareList.get(i)!=null){
+				SoftwareList.set(i,null);
 				break;
 			}
 		}
@@ -31,8 +29,8 @@ public class NewHardware extends Hardware {
 
 	public void gameSoftOut(String gameSoft){
 		for(int i=0;i<5;i++){
-			if(SoftwareList[i]==gameSoft){
-				SoftwareList[i]=null;
+			if(SoftwareList.get(i)==gameSoft){
+				SoftwareList.set(i,null);
 				break;
 			}
 		}

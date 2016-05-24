@@ -1,4 +1,5 @@
 package jp.co.tafs.lesson;
+import java.util.*;
 
 public class Hardware {
 
@@ -8,7 +9,9 @@ public class Hardware {
 	private String hardwareRelease="2014/2/22";
 	private int hardwarePrice=39800;
 	private boolean hardwarePower=false;
-	private String hardwareSoft="nothing";
+	private static String hardwareSoft;
+	
+	static List<String> SoftwareList = Arrays.asList(null,null,null,null,null);
 	
 	public void gamePlay() {
 		System.out.println(hardwareName+"で"+hardwareSoft+"をプレイ中");
@@ -50,10 +53,24 @@ public class Hardware {
 			return hardwareSoft;
 	}
 
+//この辺更新
+	public static List<String> getSoftList() {
+		return SoftwareList;
+	}
+
+	public void selectSoft(String softName){
+		hardwareSoft=softName;
+		System.out.println(softName+"に切り替えました\n");
+	}
+	
+	public void activeSoft(){
+		System.out.println("アクティブなソフト："+hardwareSoft);
+	}
+	
 	public String getHardwareName() {
 		return hardwareName;
 	}
-
+	
 	public void setHardwareName(String hardwareName) {
 		this.hardwareName = hardwareName;
 	}
@@ -102,7 +119,7 @@ public class Hardware {
 		return hardwareSoft;
 	}
 
-	public void setHardwareSoft(String hardwareSoft) {
-		this.hardwareSoft = hardwareSoft;
+	public static void setHardwareSoft(String soft) {
+		hardwareSoft = soft;
 	}
 }
