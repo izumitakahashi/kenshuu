@@ -16,10 +16,10 @@ public class Hardware {
 	public void gamePlay() {
 		if(hardwareSoft==null){
 			System.out.println(hardwareName+"にゲームが入ってない");
-			System.out.println("ゲームできねえ");//hardwareSoftがnullのとき
+			System.out.println("ゲームができなくて悲しい");//hardwareSoftがnullのとき
 		}else{
 			System.out.println(hardwareName+"で"+hardwareSoft+"をプレイ中");
-			System.out.println("めっさ楽しい");//感想
+			System.out.println("めっちゃ楽しい");//感想
 
 		}
 	}
@@ -71,14 +71,18 @@ public class Hardware {
 				System.out.println(softName+"に切り替えました\n");
 				break;
 			}else if(i==4){
-				hardwareSoft=null;//HDD内にないソフトに切り替えるとnullを入れる
-				System.out.println("そのソフトはHDD内にありません\n");
+				hardwareSoft=null;//HDD内にないソフトに切り替えようとするとnullを入れる
+				System.out.println("「"+softName+"」はHDD内にありません\n");
 			}
 		}
 	}
 	
-	public void activeSoft(){
-		System.out.println("アクティブなソフト："+hardwareSoft);
+	public String activeSoft(){
+		return hardwareSoft;
+	}
+	
+	public void activeSoftStr(String soft[]){
+		
 	}
 	
 	public String getHardwareName() {
