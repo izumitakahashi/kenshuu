@@ -14,8 +14,14 @@ public class Hardware {
 	static List<String> SoftwareList = Arrays.asList(null,null,null,null,null);
 	
 	public void gamePlay() {
-		System.out.println(hardwareName+"で"+hardwareSoft+"をプレイ中");
-		System.out.println("めっさ楽しい");//感想
+		if(hardwareSoft==null){
+			System.out.println(hardwareName+"にゲームが入ってない");
+			System.out.println("ゲームできねえ");//hardwareSoftがnullのとき
+		}else{
+			System.out.println(hardwareName+"で"+hardwareSoft+"をプレイ中");
+			System.out.println("めっさ楽しい");//感想
+
+		}
 	}
 	
 	public void hardwarePowerOn(){
@@ -59,8 +65,16 @@ public class Hardware {
 	}
 
 	public void selectSoft(String softName){
-		hardwareSoft=softName;
-		System.out.println(softName+"に切り替えました\n");
+		for(int i=0;i<5;i++){
+			if(SoftwareList.get(i)==softName){
+				hardwareSoft=softName;
+				System.out.println(softName+"に切り替えました\n");
+				break;
+			}else if(i==4){
+				hardwareSoft=null;//HDD内にないソフトに切り替えるとnullを入れる
+				System.out.println("そのソフトはHDD内にありません\n");
+			}
+		}
 	}
 	
 	public void activeSoft(){
