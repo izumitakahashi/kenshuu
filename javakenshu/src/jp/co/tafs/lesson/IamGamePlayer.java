@@ -46,7 +46,9 @@ public class IamGamePlayer {
 		nhd.gameSoftIn(gameSoft);
 		System.out.println("HDD内のソフト");
 		System.out.println(Hardware.getSoftList()+"\n");//一覧表示
+		
 		String select="ダクソ3";//ゲームタイトルでアクティブなソフトを指定
+		
 		hd.selectSoft(select);
 		
 		hd.gamePlay();//あそぶ

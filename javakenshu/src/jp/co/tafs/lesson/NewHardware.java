@@ -1,13 +1,15 @@
 package jp.co.tafs.lesson;
+import java.util.*;
+
 
 public class NewHardware extends Hardware {
 	
 	public void gameSoftIn(String gameSoft){
 		for(int i=0;i<5;i++){
-			if(SoftwareList.get(i)==gameSoft){
+			if(Objects.equals(SoftwareList.get(i),gameSoft)){
 				setHardwareSoft(gameSoft);
 				break;
-			}else if(SoftwareList.get(i)==null){
+			}else if(Objects.equals(SoftwareList.get(i),null)){
 				SoftwareList.set(i,gameSoft);
 				setHardwareSoft(gameSoft);
 				break;
@@ -19,7 +21,7 @@ public class NewHardware extends Hardware {
 	
 	public void gameSoftOut(){
 		for(int i=0;i<5;i++){
-			if(SoftwareList.get(i)!=null){
+			if(!(Objects.equals(SoftwareList.get(i),null))){
 				SoftwareList.set(i,null);
 				break;
 			}
@@ -29,7 +31,7 @@ public class NewHardware extends Hardware {
 
 	public void gameSoftOut(String gameSoft){
 		for(int i=0;i<5;i++){
-			if(SoftwareList.get(i)==gameSoft){
+			if(Objects.equals(SoftwareList.get(i),gameSoft)){
 				SoftwareList.set(i,null);
 				break;
 			}

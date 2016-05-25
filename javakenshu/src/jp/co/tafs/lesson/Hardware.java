@@ -14,7 +14,7 @@ public class Hardware {
 	static List<String> SoftwareList = Arrays.asList(null,null,null,null,null);
 	
 	public void gamePlay() {
-		if(hardwareSoft==null){
+		if(Objects.equals(hardwareSoft,null)){
 			System.out.println(hardwareName+"にゲームが入ってない");
 			System.out.println("ゲームができなくて悲しい");//hardwareSoftがnullのとき
 		}else{
@@ -37,7 +37,7 @@ public class Hardware {
 	}
 	
 	public void gameSoftIn(String gameSoft){
-		if(hardwareSoft=="nothing"){
+		if(Objects.equals(hardwareSoft,"nothing")){
 			hardwareSoft=gameSoft;
 		}
 	}
@@ -53,7 +53,7 @@ public class Hardware {
 	}
 	
 	public String checkhardwareSoft(){
-		if(hardwareSoft=="nothing")
+		if(Objects.equals(hardwareSoft,"nothing"))
 			return null;
 		else
 			return hardwareSoft;
@@ -66,7 +66,7 @@ public class Hardware {
 
 	public void selectSoft(String softName){
 		for(int i=0;i<5;i++){
-			if(SoftwareList.get(i)==softName){
+			if(Objects.equals(SoftwareList.get(i),softName)){
 				hardwareSoft=softName;
 				System.out.println(softName+"に切り替えました\n");
 				break;
